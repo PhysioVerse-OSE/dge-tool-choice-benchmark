@@ -1,0 +1,43 @@
+﻿# Raw and processed data
+data/raw/
+data/processed/
+raw_data/
+processed_data/
+intermediate/
+cache/
+results/raw/
+results/intermediate/
+
+# Sequencing and large biology files
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.sra
+*.h5
+*.h5ad
+*.rds
+*.RData
+
+# Count matrices and sensitive metadata
+*_counts.csv
+*_count_matrix.csv
+*_raw_counts.csv
+*_metadata.csv
+*_dge_results.csv
+*_normalized.csv
+
+# R and Python temporary files
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+.ipynb_checkpoints/
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

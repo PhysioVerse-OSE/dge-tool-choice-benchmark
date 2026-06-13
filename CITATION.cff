@@ -1,0 +1,17 @@
+﻿cff-version: 1.2.0
+message: "If you use this repository, please cite the associated preprint."
+title: "DGE Tool Choice Benchmark for MPS Transcriptomics"
+authors:
+  - family-names: "Rezapour"
+    given-names: "Mostafa"
+year: 2026
+repository-code: "https://github.com/PhysioVerse-OSE/dge-tool-choice-benchmark"
+preferred-citation:
+  type: article
+  title: "Tool Choice Matters: Evaluating edgeR vs. DESeq2 for Sensitivity, Robustness, and Cross-Study Performance"
+  authors:
+    - family-names: "Rezapour"
+      given-names: "Mostafa"
+  year: 2026
+  journal: "arXiv preprint"
+  notes: "arXiv:2601.04122"
