@@ -24,7 +24,7 @@ Reproducible analysis workflows supporting transparent comparison of differentia
 
 This repository provides the reproducible analysis workflows associated with:
 
-**Rezapour, Mostafa. _Tool Choice Matters: Evaluating edgeR vs. DESeq2 for Sensitivity, Robustness, and Cross-Study Performance._ arXiv preprint arXiv:2601.04122, 2026.**
+**Rezapour, Mostafa. _Tool choice matters: Evaluating edgeR vs. DESeq2 for sensitivity, robustness, and cross-study performance._ PLOS One. 2026;21(7):e0353788. [https://doi.org/10.1371/journal.pone.0353788](https://doi.org/10.1371/journal.pone.0353788)**
 
 The benchmark compares **edgeR** and **DESeq2** across RNA-seq datasets representing viral infection, bacterial infection, and fibrotic lung disease.
 
