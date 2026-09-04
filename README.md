@@ -1,82 +1,161 @@
-﻿# DGE Tool Choice Benchmark for MPS Transcriptomics
+<div align="center">
 
-This repository provides reproducible analysis workflows for comparing two widely used RNA-seq differential gene expression tools, **edgeR** and **DESeq2**, in the context of transcriptomic model evaluation, cross-study robustness, and microphysiological systems-oriented open science.
+<a href="https://physioverse.org/">
+  <img src="https://physioverse.org/branding/physioverse-logo.png" alt="PhysioVerse" width="620" />
+</a>
 
-The repository accompanies the preprint:
+# DGE Tool Choice Benchmark
+
+### Evaluating edgeR and DESeq2 across sensitivity, robustness, and cross-study performance
+
+Reproducible analysis workflows supporting transparent comparison of differential gene expression methods across multiple RNA-seq datasets.
+
+<a href="https://physioverse.org/tools"><strong>PhysioVerse Tools</strong></a>
+&nbsp;&nbsp;•&nbsp;&nbsp;
+<a href="README_reproducibility.md"><strong>Reproducibility Guide</strong></a>
+&nbsp;&nbsp;•&nbsp;&nbsp;
+<a href="CITATION.cff"><strong>Citation</strong></a>
+
+</div>
+
+---
+
+## Overview
+
+This repository provides the reproducible analysis workflows associated with:
 
 **Rezapour, Mostafa. _Tool Choice Matters: Evaluating edgeR vs. DESeq2 for Sensitivity, Robustness, and Cross-Study Performance._ arXiv preprint arXiv:2601.04122, 2026.**
 
-## Why this repository matters
+The benchmark compares **edgeR** and **DESeq2** across RNA-seq datasets representing viral infection, bacterial infection, and fibrotic lung disease.
 
-Microphysiological systems, organ-on-chip models, engineered tissues, and related human-relevant platforms increasingly rely on transcriptomic profiling to evaluate biological fidelity, disease modeling, injury response, drug response, and cross-platform reproducibility.
+The workflows evaluate how differential gene expression tool choice can affect detected genes, downstream biological interpretation, robustness, and cross-study predictive performance.
 
-In these settings, computational analysis is not a neutral final step. The choice of differential gene expression tool can influence which genes are identified, which pathways appear enriched, and which biological conclusions are carried forward.
+---
 
-This repository provides a transparent framework for evaluating how edgeR and DESeq2 differ across sensitivity, robustness, pathway-level interpretation, and cross-study performance.
+## Benchmark Scope
 
-## Connection to PhysioVerse-OSE
+<table>
+<tr>
+<td width="50%" valign="top">
 
-PhysioVerse-OSE aims to support open, reproducible, and standardized evaluation of microphysiological and tissue-engineered systems. This repository contributes to that mission by providing a benchmark workflow for transcriptomic analysis decisions.
+### Differential Expression Performance
 
-In the OSE context, this tool helps users ask:
+- sample-size sensitivity
+- outlier robustness
+- DEG concordance and divergence
+- tool-specific gene sets
 
-- Do edgeR and DESeq2 identify the same biological signals?
-- Which genes are shared across tools, and which are tool-specific?
-- Are tool-specific gene sets useful for downstream classification?
-- Do results generalize across independent studies?
-- How should transcriptomic evidence be interpreted when benchmarking MPS fidelity?
+</td>
+<td width="50%" valign="top">
 
-## Repository contents
+### Downstream Biological Performance
 
-The repository is organized around the manuscript figures and reproducibility workflows.
+- pathway-level concordance
+- within-dataset classification
+- training-gene selection
+- cross-study SARS-CoV-2 prediction
 
-- R scripts for differential gene expression analysis
-- Python scripts for data summarization, comparison, and visualization
-- Notebooks used for figure generation
-- Final figure outputs in PNG and PDF format
-- Documentation for reproducibility and reuse
+</td>
+</tr>
+</table>
 
-## What is included
+---
 
-This repository includes code and figure-generation workflows.
+## Why Tool Choice Matters
 
-## What is not included
+RNA-seq differential expression analysis is widely used to characterize biological responses and compare experimental systems.
 
-Raw RNA-seq count matrices, large processed datasets, and sensitive sample-level metadata are not included.
+Different analytical methods can identify overlapping but non-identical sets of differentially expressed genes. These differences can propagate into pathway analysis, biomarker selection, predictive modeling, and biological interpretation.
 
-Users should obtain public datasets from their original sources and format them according to the instructions provided in the documentation.
+This repository provides a transparent and reproducible framework for examining those differences across multiple datasets and analytical settings.
 
-## Study scope
+---
 
-The accompanying analysis compares edgeR and DESeq2 across publicly available bulk RNA-seq datasets covering infectious and fibrotic disease contexts. The workflows examine:
+## Repository Contents
 
-1. Sensitivity to sample size
-2. Robustness to outlier perturbation
-3. Concordance and divergence of differentially expressed genes
-4. Pathway-level interpretation
-5. Within-dataset classification using tool-specific gene sets
-6. Cross-study generalization across independent SARS-CoV-2 datasets
+The repository is organized around manuscript figures and reproducibility workflows.
 
-## Intended users
+```text
+figure 1/          Sample-size sensitivity and outlier robustness
+figure 2 and 3/    DEG concordance and within-dataset classification
+figure 4 and 5/    Pathway-level concordance
+figure 6/          Cross-study training-gene selection
+figure 7/          Cross-study held-out classification
+data/              Data preparation guidance
+docs/              Reproduction and contextual documentation
+pathways/          Pathway-resource documentation
+```
 
-This repository is intended for:
+The repository includes R scripts for differential gene expression analysis, Python scripts for summarization and visualization, notebooks used in figure-generation workflows, final figure outputs, reproducibility documentation, and citation metadata.
 
-- MPS and organ-on-chip investigators using RNA-seq for model evaluation
-- Computational biologists comparing DGE workflows
-- Open science teams developing reproducible benchmark pipelines
-- Reviewers and collaborators evaluating transcriptomic robustness
-- PhysioVerse-OSE users interested in standardized biological model assessment
+---
+
+## Data Availability
+
+Raw RNA-seq count matrices and large processed datasets are not bundled with this repository.
+
+The analyses use public datasets from their original repositories. Users should download the required datasets and format them according to the reproducibility documentation.
+
+| Accession / Source | Biological Context |
+|---|---|
+| `GSE196134` | RSVB stimulation |
+| `GSE234118` | Mpox infection |
+| `GSE115785` | Ebola virus infection |
+| `PMC8202013` | SARS-CoV-2 and influenza |
+| `GSE161731` | Bacterial pneumonia, influenza, SARS-CoV-2, and healthy controls |
+| `GSE231693` | Idiopathic pulmonary fibrosis and healthy lung |
+| `GSE152418` | SARS-CoV-2 PBMC |
+| `GSE171110` | SARS-CoV-2 whole blood |
+
+For complete dataset requirements and figure-specific instructions, see [`README_reproducibility.md`](README_reproducibility.md).
+
+---
+
+## Reproduce the Analysis
+
+### [Open the Reproducibility Guide →](README_reproducibility.md)
+
+Additional documentation:
+
+| Resource | Purpose |
+|---|---|
+| [`docs/figure-reproduction.md`](docs/figure-reproduction.md) | Figure reproduction guidance |
+| [`docs/mps-and-ose-context.md`](docs/mps-and-ose-context.md) | Context for MPS and open-science use |
+| [`data/README.md`](data/README.md) | Data preparation guidance |
+| [`pathways/README.md`](pathways/README.md) | Pathway resources |
+
+---
+
+## Software
+
+The workflows use both **R** and **Python**. Primary R packages include edgeR and DESeq2. Primary Python packages and execution details are documented in [`README_reproducibility.md`](README_reproducibility.md).
+
+---
+
+## Connection to PhysioVerse
+
+This benchmark contributes to the PhysioVerse goal of supporting transparent and reproducible analysis of data generated from advanced in vitro and human-relevant model systems.
+
+Within the broader ecosystem, the repository provides a concrete example of how analytical choices can be evaluated rather than treated as interchangeable.
+
+<p align="center">
+  <a href="https://physioverse.org/"><strong>Visit PhysioVerse</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://physioverse.org/tools"><strong>Explore Tools</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://github.com/PhysioVerse-OSE"><strong>PhysioVerse GitHub</strong></a>
+</p>
+
+---
 
 ## Citation
 
-If you use this repository, please cite:
+Citation metadata are provided in [`CITATION.cff`](CITATION.cff).
 
-Rezapour, Mostafa. _Tool Choice Matters: Evaluating edgeR vs. DESeq2 for Sensitivity, Robustness, and Cross-Study Performance._ arXiv preprint arXiv:2601.04122, 2026.
+If you use this repository or its associated workflows, please cite the associated work described in that file.
 
-## Status
+---
 
-This repository is intended as a reproducible companion repository for the manuscript and as an OSE-aligned transcriptomics benchmark tool. The current release focuses on figure reproducibility and transparent documentation. Future versions may include command-line wrappers, standardized input validators, and automated benchmark reports for MPS transcriptomic datasets.
+## Repository Status
 
-## License
-
-Please see the LICENSE file for reuse terms.
+This repository serves as the reproducible companion resource for the DGE tool-choice benchmark and provides the code, documentation, and figure-generation workflows needed to inspect and reproduce the analyses.
